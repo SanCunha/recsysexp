@@ -10,6 +10,8 @@ COPY package*.json ./
 # Install app dependencies
 RUN npm install
 
+RUN npm install -g next
+
 # Copy the current directory contents into the container at /app
 COPY . .
 
@@ -19,8 +21,10 @@ EXPOSE 3000
 # Define environment variable
 ENV NODE_ENV=production
 
+
 # Build the app
 RUN npm run build
 
 # CMD specifies the command to run on container start
 CMD ["npm", "start"]
+
