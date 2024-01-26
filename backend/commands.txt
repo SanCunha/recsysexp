@@ -1,0 +1,5 @@
+
+kubectl apply -f recsysexp-deployment.yaml && \
+kubectl get pods
+kubectl expose deployment recsysexp --type=LoadBalancer --name=recsysexp
+kubectl describe service recsysexp | grep IP

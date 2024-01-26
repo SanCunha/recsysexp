@@ -1,0 +1,56 @@
+{
+    "experiments": [
+        {
+            "experiment_id": "exp1",
+            "dataset": {
+                "class": "MovieLens",
+                "module": "src.data.movielens",
+                "parameters": {
+                    "proportion": "ml-latest-small",
+                    "filters": {}
+                }
+            },
+            "preprocessing": {
+                "module": "src.preprocessing.preprocessing_container",
+                "class": "PreProcessingContainer",
+                "parameters": {
+                  "instances": [
+                    {
+                      "module": "src.preprocessing.split",
+                      "class_name": "SplitProcessing",
+                      "parameters": {
+                        "target": "rating",
+                        "train_size": 70,
+                        "test_size": 30,
+                        "random_state": 42,
+                        "shuffle": true,
+                        "stratify": ""
+                      }
+                    },
+                    {
+                      "module": "src.preprocessing.folds",
+                      "class_name": "FoldsProcessing",
+                      "parameters": {
+                        "target_column": "rating",
+                        "folds": 1,
+                        "shuffle": false,
+                        "random_state": 42,
+                        "strategy": "stratifiedshufflesplit"
+                      }
+                    },
+                    {
+                      "module": "src.preprocessing.text",
+                      "class_name": "TextProcessing",
+                      "parameters": {
+                        "column_to_apply": "genres",
+                        "remove_stop_words": true,
+                        "tokenize_words": true,
+                        "column_to_index": "title"
+                      }
+                    }
+                  ]
+                }
+              }
+        }
+    ]
+}

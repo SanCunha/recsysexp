@@ -1,0 +1,28 @@
+{
+  "clusterIp": "",
+  "tasks": [],
+  "recipeDefaults": {
+    "DB": [],
+    "Fold": [],
+    "MF": [],
+    "Alg": [],
+    "HF": [],
+    "Eval": [],
+    "Stats": []
+  },
+  "recipes": [
+    {
+      "id": "",
+      "pruning": [],
+      "uses": {
+        "DB": [],
+        "Fold": [],
+        "MF": [],
+        "Alg": [],
+        "HF": [],
+        "Eval": [],
+        "Stats": []
+      }
+    }
+  ]
+}

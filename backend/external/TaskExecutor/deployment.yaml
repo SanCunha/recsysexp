@@ -1,0 +1,27 @@
+---
+apiVersion: "apps/v1"
+kind: "Deployment"
+metadata:
+  name: "TaskExecutor-deployment"
+  namespace: "default"
+  labels:
+    app: "TaskExecutor-deployment"
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: "TaskExecutor-deployment"
+  template:
+    metadata:
+      labels:
+        app: "TaskExecutor-deployment"
+    spec:
+      containers:
+      - name: "TaskExecutor-container"
+        image: "mpacheco95/task_executor:1.0.0"
+        ports:
+        - containerPort: 5050
+      - name: "xperimentor-container"
+        image: "mpacheco95/xperimentor:1.0.0"
+        ports:
+          - containerPort: 5051

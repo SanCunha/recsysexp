@@ -1,0 +1,45 @@
+{
+  "config": {
+    "clusterIP": "",
+    "clusterName": "",
+    "projectID": ""
+  },
+  "experiment_dependencies": [
+    {
+      "id": "exp1",
+      "deps": []
+    }
+  ],
+  "recipesDefault": {
+    "database": ["MovieLens"],
+    "metafeatures": ["PCR", "PR", "GINI", "PEARSON", "PQMEAN", "SD"],
+    "metrics": ["RMSE", "F1", "EPC", "EILD"],
+    "hybrid": ["STREAM", "FWLS"],
+    "algorithms": ["Sigmoid", "Biased", "MF", "Uknn", "SVD", "Latent", "Factor", "BiPolar", "SO"],
+    "results": ["mean", "IC"],
+    "folds": []
+  },
+  "experiments":[
+    {
+      "experimentID": "",
+      "dataset": {
+        "class": "MovieLens",
+        "module": "src.data.movielens",
+        "parameters": {
+          "proportion": "ml-latest-small",
+          "folds": "5",
+          "strategy": "StratifiedKFolds",
+          "filters": {
+            "qtd_ratings": 100
+          }
+        }
+      },
+      "preprocessing": {},
+      "metafeatures": {},
+      "recommenders": {},
+      "metrics": {},
+      "results": {},
+      "visualizations": {}
+    }
+  ]
+}

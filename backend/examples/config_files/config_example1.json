@@ -1,0 +1,21 @@
+{
+  "cluster_info": {
+    "clusterIP": "",
+    "clusterName": "",
+    "projectID": ""
+  },
+  "experiment_dependencies": [],
+  "recipesDefault": {},
+  "experiments":[
+    {
+      "experimentID": "",
+      "dataset": {},
+      "preprocessing": {},
+      "metafeatures": {},
+      "recommenders": {},
+      "metrics": {},
+      "results": {},
+      "visualization": {}
+    }
+  ]
+}

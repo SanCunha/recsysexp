@@ -1,0 +1,66 @@
+clusterIp: 10.97.101.227
+recipeDefaults:
+  Alg:
+  - Sigmoid
+  - Biased
+  - MF
+  - Uknn
+  - SVD
+  - Latent
+  - Factor
+  - BiPolar
+  - SO
+  DB:
+  - MovieLens
+  Eval:
+  - RMSE
+  - F1
+  - EPC
+  - EILD
+  Fold: []
+  HF:
+  - STREAM
+  - FWLS
+  MF:
+  - PCR
+  - PR
+  - GINI
+  - PEARSON
+  - PQMEAN
+  - SD
+  Stats:
+  - mean
+  - IC
+recipes:
+- id: exp1
+  pruning: []
+  uses:
+    Alg:
+    - LenskitImplicitMF
+    - LenskitItemKNN
+    - LenskitUserKNN
+    DB:
+    - GeneralDataset
+    Eval:
+    - RMSE
+    Fold: []
+    HF: []
+    MF: []
+    Stats:
+    - ANOVA
+    - ConfidenceInterval
+tasks:
+- command: python /home/san-cunha/Desktop/Desktop/UFOP/MonoII/RecSysExp-main/src/tasks/dataset_task.py
+  id: dataset_task
+- command: python /home/san-cunha/Desktop/Desktop/UFOP/MonoII/RecSysExp-main/src/tasks/preprocessing_task.py
+  id: preprocessing_task
+- command: python /home/san-cunha/Desktop/Desktop/UFOP/MonoII/RecSysExp-main/src/tasks/metrics_task.py
+  id: metrics_task
+- command: python /home/san-cunha/Desktop/Desktop/UFOP/MonoII/RecSysExp-main/src/tasks/metafeatures_task.py
+  id: metafeatures_task
+- command: python /home/san-cunha/Desktop/Desktop/UFOP/MonoII/RecSysExp-main/src/tasks/algorithms_task.py
+  id: recommenders_task
+- command: python /home/san-cunha/Desktop/Desktop/UFOP/MonoII/RecSysExp-main/src/tasks/visualization_task.py
+  id: visualization_task
+- command: python /home/san-cunha/Desktop/Desktop/UFOP/MonoII/RecSysExp-main/src/tasks/results_task.py
+  id: results_task
