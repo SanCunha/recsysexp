@@ -7,10 +7,13 @@ WORKDIR /app
 # Copy package.json and package-lock.json to the working directory
 COPY package*.json ./
 
+COPY next.config.js ./
+
+RUN npm install -g next@13.4.9
 # Install app dependencies
 RUN npm install
 
-RUN npm install -g next
+
 
 # Copy the current directory contents into the container at /app
 COPY . .

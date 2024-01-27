@@ -1,1 +1,32 @@
-"use strict";(()=>{var e={};e.id=888,e.ids=[888],e.modules={16689:e=>{e.exports=require("react")}};var r=require("../webpack-runtime.js");r.C(e);var s=e=>r(r.s=e),i=r.X(0,[378,377],()=>s(49377));module.exports=i})();
+"use strict";
+(() => {
+var exports = {};
+exports.id = 888;
+exports.ids = [888];
+exports.modules = {
+
+/***/ 59232:
+/***/ ((module) => {
+
+module.exports = require("next/dist/shared/lib/utils.js");
+
+/***/ }),
+
+/***/ 16689:
+/***/ ((module) => {
+
+module.exports = require("react");
+
+/***/ })
+
+};
+;
+
+// load runtime
+var __webpack_require__ = require("../webpack-runtime.js");
+__webpack_require__.C(exports);
+var __webpack_exec__ = (moduleId) => (__webpack_require__(__webpack_require__.s = moduleId))
+var __webpack_exports__ = __webpack_require__.X(0, [530], () => (__webpack_exec__(86530)));
+module.exports = __webpack_exports__;
+
+})();

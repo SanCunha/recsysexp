@@ -77,14 +77,16 @@ def listar_pastas():
 
 @app.route("/run", methods=["POST"])
 def run():
-    data = request.get_json()
-    saved_json = write_json(data)
-    if saved_json:
-        os.system("python main.py output.json")
-        files = get_files()
-        return files
-    else:
-        pass
+    clear_output()
+    # data = request.get_json()
+    # saved_json = write_json(data)
+    # if saved_json:
+    #     os.system("python main.py output.json")
+    #     files = get_files()
+    #     return files
+    # else:
+    #     pass
+    return {"sucess": True}
 
 
 def write_json(data):
@@ -123,6 +125,18 @@ def get_files():
     response = send_file(zip_buffer, as_attachment=True, download_name="all_files.zip")
     response.headers["Content-Disposition"] = "attachment; filename=all_files.zip"
     return response
+
+
+def clear_output():
+    folder = "./experiment_output"
+    # Percorre todos os arquivos e subdiretórios no diretório
+    for root, dirs, files in os.walk(folder):
+        # Exclui todos os arquivos no diretório
+
+        for file in files:
+            if file != "xperimentor_yaml_file.yaml":
+                caminho_arquivo = os.path.join(root, file)
+                os.remove(caminho_arquivo)
 
 
 if __name__ == "__main__":
