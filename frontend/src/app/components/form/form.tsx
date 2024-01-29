@@ -55,7 +55,7 @@ function Form() {
                 "class": "GeneralDataset",
                 "module": "src.data.general_dataset",
                 "parameters": {
-                    "name": "movielens"
+                    "name": "MovieLens"
                 }
             },
             "preprocessing": {
@@ -382,7 +382,7 @@ function Form() {
                 "class": "GeneralDataset",
                 "module": "src.data.general_dataset",
                 "parameters": {
-                    "name": "movielens"
+                    "name": "MovieLens"
                 }
             },
             "preprocessing": {

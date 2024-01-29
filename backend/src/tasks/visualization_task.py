@@ -1,6 +1,6 @@
 import sys
 
-sys.path.insert(0, "/home/san-cunha/Desktop/Desktop/UFOP/MonoII/RecSysExp-main")
+sys.path.insert(0, "/app")
 from src.tasks.task import Task
 from src.experiments.experiment_handler import ExperimentHandler
 from src.data.loader import Loader

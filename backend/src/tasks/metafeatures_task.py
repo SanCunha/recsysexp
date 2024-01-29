@@ -1,6 +1,6 @@
 import sys
 
-sys.path.insert(0, "/home/san-cunha/Desktop/Desktop/UFOP/MonoII/RecSysExp-main")
+sys.path.insert(0, "/app")
 import subprocess
 from src.utils import hrf_external_path
 from src.tasks.task import Task

@@ -1,13 +1,10 @@
 export const data_experiments = {
         "experiment_id": "exp1",
         "dataset": {
-          "class": "MovieLens",
-          "module": "src.data.movielens",
+          "class": "GeneralDataset",
+          "module": "src.data.general_dataset",
           "parameters": {
-            "proportion": "ml-latest-small",
-            "filters": {
-  
-            }
+            "name": "MovieLens"
           }
         },
         "preprocessing": {

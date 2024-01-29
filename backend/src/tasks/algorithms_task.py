@@ -1,6 +1,6 @@
 import sys
 
-sys.path.insert(0, "/home/san-cunha/Desktop/Desktop/UFOP/MonoII/RecSysExp-main")
+sys.path.insert(0, "/app")
 from lenskit.algorithms.basic import UnratedItemCandidateSelector
 import numpy as np
 from src.experiments.experiment_handler import ExperimentHandler

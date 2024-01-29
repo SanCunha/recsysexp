@@ -1,6 +1,6 @@
 import sys
 
-sys.path.insert(0, "/home/san-cunha/Desktop/Desktop/UFOP/MonoII/RecSysExp-main")
+sys.path.insert(0, "/app")
 import pandas as pd
 import os
 from src.tasks.task import Task

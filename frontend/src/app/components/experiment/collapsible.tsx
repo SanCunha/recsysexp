@@ -40,10 +40,10 @@ const Collapsible: React.FC<CollapsibleProps> = ({ title, component, header = fa
                     config: {
                         "experiment_id": `Experiment 0${prevData.length}`,
                         "dataset": {
-                            "class": "MovieLens",
-                            "module": "src.data.movielens",
+                            "class": "GeneralDataset",
+                            "module": "src.data.general_dataset",
                             "parameters": {
-                                "name": "ml-latest-small",
+                                "name": "MovieLens"
                             }
                         },
                         "preprocessing": {

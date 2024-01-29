@@ -3,12 +3,11 @@
         {
             "experiment_id": "exp1",
             "dataset": {
-                "class": "MovieLens",
-                "module": "src.data.movielens",
-                "parameters": {
-                    "proportion": "ml-latest-small",
-                    "filters": {}
-                }
+              "class": "GeneralDataset",
+              "module": "src.data.general_dataset",
+              "parameters": {
+                "name": "MovieLens"
+              }
             },
             "preprocessing": {
                 "module": "src.preprocessing.preprocessing_container",

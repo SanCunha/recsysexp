@@ -78,15 +78,14 @@ def listar_pastas():
 @app.route("/run", methods=["POST"])
 def run():
     clear_output()
-    # data = request.get_json()
-    # saved_json = write_json(data)
-    # if saved_json:
-    #     os.system("python main.py output.json")
-    #     files = get_files()
-    #     return files
-    # else:
-    #     pass
-    return {"sucess": True}
+    data = request.get_json()
+    saved_json = write_json(data)
+    if saved_json:
+        os.system("python3 main.py output.json")
+        files = get_files()
+        return files
+    else:
+        pass
 
 
 def write_json(data):
@@ -134,7 +133,10 @@ def clear_output():
         # Exclui todos os arquivos no diretório
 
         for file in files:
-            if file != "xperimentor_yaml_file.yaml":
+            if (
+                file != "xperimentor_yaml_file.yaml"
+                and file != "new_ratings_dataset.csv"
+            ):
                 caminho_arquivo = os.path.join(root, file)
                 os.remove(caminho_arquivo)
 

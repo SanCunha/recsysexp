@@ -10,10 +10,9 @@ COPY package*.json ./
 COPY next.config.js ./
 
 RUN npm install -g next@13.4.9
+
 # Install app dependencies
 RUN npm install
-
-
 
 # Copy the current directory contents into the container at /app
 COPY . .
