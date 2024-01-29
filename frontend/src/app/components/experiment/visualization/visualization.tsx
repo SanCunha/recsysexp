@@ -14,12 +14,14 @@ interface VisualizationProps {
 function Visualization(props: VisualizationProps) {
 
     const handle_change = (key: string, target: any) => {
-
+        console.log("new_instances")
         let new_instances = props.visualization["parameters"]["instances"]
+        console.log(new_instances)
         const idx = props.visualization.parameters.instances.findIndex((e: any) => e.class_name == key.split("-")[0])
 
-        new_instances[idx]["parameters"] = { ...props.visualization["parameters"]["instances"][idx]["parameters"], [key.split("-")[1]]: target }
+        new_instances[idx]["parameters"]["plot_types"] = { ...props.visualization["parameters"]["instances"][idx]["parameters"]["plot_types"], [key.split("-")[1]]: target }
 
+        console.log(new_instances)
         props.set_visualization((prevData) => {
             return [
                 ...prevData.slice(0, props.idx),
@@ -43,7 +45,7 @@ function Visualization(props: VisualizationProps) {
         <div style={{ display: 'flex', alignItems: 'center', width: "100%" }}>
             <FormGroup style={{ display: 'flex', flexDirection: 'row', alignItems: 'baseline', justifyContent: "space-evenly" }}>
                 {props.visualization.parameters.instances.map((instance: Instance6) => (
-                    <CustomComponent idx={props.idx} key={instance["class_name"]} father="visualization" title={instance["class_name"]} parameters={instance["parameters"]} set_parameters={handle_change} checkbox={true} set_list={props.set_list} />
+                    <CustomComponent idx={props.idx} key={instance["class_name"]} father="visualization" title={instance["class_name"]} parameters={instance["parameters"]["plot_types"]} set_parameters={handle_change} checkbox={true} set_list={props.set_list} />
                 ))}
             </FormGroup>
         </div>
