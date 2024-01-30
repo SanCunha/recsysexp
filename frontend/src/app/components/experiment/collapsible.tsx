@@ -241,9 +241,9 @@ const Collapsible: React.FC<CollapsibleProps> = ({ title, component, header = fa
                                         "parameters": {
                                             "plot_types": {
                                                 "ratings_by_user": true,
-                                                "ratings_by_movie": true,
+                                                "ratings_by_item": true,
                                                 "items_predict": true,
-                                                "movie_ratings_distribution": true
+                                                "item_ratings_distribution": true
                                             }
                                         }
                                     },
@@ -253,9 +253,9 @@ const Collapsible: React.FC<CollapsibleProps> = ({ title, component, header = fa
                                         "parameters": {
                                             "plot_types": {
                                                 "ratings_by_user": true,
-                                                "ratings_by_movie": true,
+                                                "ratings_by_item": true,
                                                 "items_predict": true,
-                                                "movie_ratings_distribution": true
+                                                "item_ratings_distribution": true
                                             }
                                         }
                                     },
@@ -265,9 +265,9 @@ const Collapsible: React.FC<CollapsibleProps> = ({ title, component, header = fa
                                         "parameters": {
                                             "plot_types": {
                                                 "ratings_by_user": true,
-                                                "ratings_by_movie": true,
+                                                "ratings_by_item": true,
                                                 "items_predict": true,
-                                                "movie_ratings_distribution": true
+                                                "item_ratings_distribution": true
                                             }
                                         }
                                     }

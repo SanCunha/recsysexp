@@ -13,52 +13,59 @@ class StaticBar(StaticPlot):
         parameters = process_parameters(parameters, default_keys)
 
         self.visualization_output_path = "visualization/static/bar/"
-        self.plot_types = parameters.get('plot_types')
+        self.plot_types = parameters.get("plot_types")
 
-        self.ratings_by_user = self.plot_types.get('ratings_by_user')
-        self.ratings_by_movie = self.plot_types.get('ratings_by_movie')
-        self.movie_ratings_distribution = self.plot_types.get('movie_ratings_distribution')
+        self.ratings_by_user = self.plot_types.get("ratings_by_user")
+        self.ratings_by_items = self.plot_types.get("ratings_by_item")
+        self.item_ratings_distribution = self.plot_types.get(
+            "item_ratings_distribution"
+        )
 
     def plot(self, data: pd.DataFrame = None, **kwargs):
         """
 
         @return:
         """
-        ratings = MovieLens({
-            'proportion': 'ml-latest-small',
-            'filters': {}
-        }).ratings
+        ratings = MovieLens({"proportion": "ml-latest-small", "filters": {}}).ratings
 
         self.ratings_by_user_plot(ratings)
-        self.ratings_by_movie_plot(ratings)
+        self.ratings_by_items_plot(ratings)
 
     def ratings_by_user_plot(self, ratings: pd.DataFrame):
         print("ratings by user plot")
-        df = ratings.groupby(by=['user'], axis=0).count()
+        df = ratings.groupby(by=["user"], axis=0).count()
         df = df.reset_index()
         print("df: \n", df)
         fig, ax = plt.subplots(figsize=(10, 6))
 
-        ax.bar(df['user'], height=df['rating'])
+        ax.bar(df["user"], height=df["rating"])
         ax.set_title("Quantidade de Ratings por usuário")
         ax.set_ylabel("Quantidade de ratings")
         ax.set_xlabel("Id dos usuários")
         archive_name = "ratings_by_user_bar.png"
-        path_to_save = hrf_experiment_output_path().joinpath(self.visualization_output_path).joinpath(archive_name)
+        path_to_save = (
+            hrf_experiment_output_path()
+            .joinpath(self.visualization_output_path)
+            .joinpath(archive_name)
+        )
         fig.savefig(path_to_save)
         return df
 
-    def ratings_by_movie_plot(self, ratings: pd.DataFrame):
+    def ratings_by_items_plot(self, ratings: pd.DataFrame):
         print("ratings by movie plot")
-        df = ratings.groupby(by=['item'], axis=0).count()
+        df = ratings.groupby(by=["item"], axis=0).count()
         df = df.reset_index()
 
         fig, ax = plt.subplots(figsize=(10, 6))
-        ax.bar(df['user'], height=df['rating'])
+        ax.bar(df["user"], height=df["rating"])
         ax.set_title("Quantidade de Ratings por filme")
         ax.set_ylabel("Quantidade de ratings")
         ax.set_xlabel("Id dos filmes")
-        archive_name = "ratings_by_movie.png"
-        path_to_save = hrf_experiment_output_path().joinpath(self.visualization_output_path).joinpath(archive_name)
+        archive_name = "ratings_by_items.png"
+        path_to_save = (
+            hrf_experiment_output_path()
+            .joinpath(self.visualization_output_path)
+            .joinpath(archive_name)
+        )
         fig.savefig(path_to_save)
         return df

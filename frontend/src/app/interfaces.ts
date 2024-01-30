@@ -226,9 +226,9 @@ export interface Root {
   
   export interface PlotTypes {
     ratings_by_user: boolean
-    ratings_by_movie: boolean
+    ratings_by_item: boolean
     items_predict: boolean
-    movie_ratings_distribution: boolean
+    item_ratings_distribution: boolean
   }
   
   export interface Results {
