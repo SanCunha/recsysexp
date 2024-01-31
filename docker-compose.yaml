@@ -9,7 +9,6 @@ services:
       - "5000:5000"
     volumes:
       - ./backend:/app
-    command: python3 app.py
 
   react-app:
     build:
@@ -21,4 +20,3 @@ services:
       - ./frontend:/app
     depends_on:
       - flask-app
-    command: npm start

@@ -20,13 +20,14 @@ COPY . .
 # Make port 3000 available to the world outside this container
 EXPOSE 3000
 
-# Define environment variable
-ENV NODE_ENV=production
+# # Define environment variable
+# ENV NODE_ENV=production
 
 
-# Build the app
-RUN npm run build
+# # Build the app
+# RUN npm run build
 
-# CMD specifies the command to run on container start
-CMD ["npm", "start"]
+# # CMD specifies the command to run on container start
+# CMD ["npm", "start"]
 
+CMD ["npm", "run", "dev"]
