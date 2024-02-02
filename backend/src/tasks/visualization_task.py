@@ -35,7 +35,11 @@ class VisualizationTask(Task):
         @param results:
         @return:
         """
-        return visualization
+
+        for tmp in visualization.items:
+            tmp[0].plot()
+        # return visualization
+        return
 
 
 def run_visualization_task():
@@ -48,8 +52,8 @@ def run_visualization_task():
     experiment = exp_handler.get_experiment("exp1")
     experiment_instances = experiment.instances
 
-    visualization_instance = experiment_instances["datasets"]
-
+    visualization_instance = experiment_instances["visualization"]
+    print("visualization_instance", visualization_instance.items)
     visualization_task = VisualizationTask(visualization_instance)
 
     print(" => Iniciando a execução da tarefa da visualização dos dados")

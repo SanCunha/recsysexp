@@ -138,6 +138,10 @@ class MetricsTask(Task):
         for file in pred_files:
             print("prediction path: ", file)
 
+            # if len(file.split("-")) == 4:
+            #     fold_number = file.split("-")[3]
+            # else:
+            #     fold_number = "0"
             fold_number = file.split("-")[3]
             pred_path = self.predictions_output_path.joinpath(file)
             prediction = pd.read_csv(pred_path)

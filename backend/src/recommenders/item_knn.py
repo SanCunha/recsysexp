@@ -29,17 +29,17 @@ class LenskitItemKNN(ItemKNN):
     def __init__(self, parameters: dict) -> None:
         super().__init__(parameters)
         default_keys = {
-            'maxNumberNeighbors',
+            "maxNumberNeighbors",
         }
 
         parameters = process_parameters(parameters, default_keys)
-        self.max_number_neighbors = parameters.get('maxNumberNeighbors')
-        self.min_number_neighbors = parameters.get('minNumberNeighbors', 1)
-        self.save_nbrs = parameters.get('saveNeighbors', None)
-        self.feedback = parameters.get('feedback', 'explicit')
-        self.aggregate = parameters.get('aggregate', 'weighted-average')
-        self.use_ratings = parameters.get('use_ratings', True)
-        self.min_sim = parameters.get('min_sim', 0.03)
+        self.max_number_neighbors = parameters.get("maxNumberNeighbors")
+        self.min_number_neighbors = parameters.get("minNumberNeighbors", 1)
+        self.save_nbrs = parameters.get("saveNeighbors", None)
+        self.feedback = parameters.get("feedback", "explicit")
+        self.aggregate = parameters.get("aggregate", "weighted-average")
+        self.use_ratings = parameters.get("use_ratings", True)
+        self.min_sim = parameters.get("min_sim", 0.03)
 
         self.ItemKNN = item_knn.ItemItem(
             nnbrs=self.max_number_neighbors,
@@ -48,7 +48,7 @@ class LenskitItemKNN(ItemKNN):
             min_sim=self.min_sim,
             feedback=self.feedback,
             aggregate=self.aggregate,
-            use_ratings=self.use_ratings
+            use_ratings=self.use_ratings,
         )
         self.ItemKNN = LenskitRecommender.adapt(self.ItemKNN)
 
@@ -60,7 +60,7 @@ class LenskitItemKNN(ItemKNN):
 
     def recommend(self, users, n, candidates=None, n_jobs=None) -> pd.DataFrame:
         recommendation_dataframe = pd.DataFrame(
-            columns=['user', 'item', 'score', 'algorithm_name']
+            columns=["user", "item", "score", "algorithm_name"]
         )
         for user in users:
             recommendation_to_user = self.ItemKNN.recommend(user, n)
@@ -68,12 +68,11 @@ class LenskitItemKNN(ItemKNN):
             names = pd.Series([self.__class__.__name__] * n)
             user_id_list = pd.Series([user] * n)
 
-            recommendation_to_user['algorithm_name'] = names
-            recommendation_to_user['user'] = user_id_list
+            recommendation_to_user["algorithm_name"] = names
+            recommendation_to_user["user"] = user_id_list
 
             recommendation_dataframe = pd.concat(
-                [recommendation_dataframe, recommendation_to_user],
-                ignore_index=True
+                [recommendation_dataframe, recommendation_to_user], ignore_index=True
             )
 
         return recommendation_dataframe

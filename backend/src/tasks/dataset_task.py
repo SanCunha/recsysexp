@@ -32,9 +32,9 @@ class DatasetTask(Task):
 
         @return:
         """
-        self.dataset_instance.run()
-        # dataset = self._handle_operations_dataset(self.dataset_instance)
-        # return dataset
+        # self.dataset_instance.run()
+        dataset = self._handle_operations_dataset(self.dataset_instance)
+        return dataset
 
     def _handle_operations_dataset(self, dataset):
         """
@@ -59,27 +59,26 @@ def run_dataset_task():
     experiment_instances = experiment.instances
 
     dataset_instance = experiment_instances["datasets"]
-    dataset_task = DatasetTask(dataset_instance)  # Isso aqui vira o GeneralDataset
-
+    dataset_task = DatasetTask(dataset_instance)
     print("\n")
     print(" => Iniciando a execução da tarefa dos datasets")
 
     dataset_result = dataset_task.run()
-    # print(dataset_result)
-    # dataset_experiment_dir = hrf_experiment_output_path().joinpath("datasets/")
+    print(dataset_result)
+    dataset_experiment_dir = hrf_experiment_output_path().joinpath("datasets/")
 
-    # is_dataset_dir_exists = check_if_directory_exists(dataset_experiment_dir)
+    is_dataset_dir_exists = check_if_directory_exists(dataset_experiment_dir)
 
-    # if is_dataset_dir_exists is False:
-    #     create_directory(hrf_experiment_output_path(), "datasets")
+    if is_dataset_dir_exists is False:
+        create_directory(hrf_experiment_output_path(), "datasets")
 
-    # path_to_save_ratings = hrf_experiment_output_path().joinpath(
-    #     "datasets/new_ratings_dataset.csv"
-    # )
-    # path_to_save_items = hrf_experiment_output_path().joinpath("datasets/items.csv")
+    path_to_save_ratings = hrf_experiment_output_path().joinpath(
+        "datasets/new_ratings_dataset.csv"
+    )
+    path_to_save_items = hrf_experiment_output_path().joinpath("datasets/items.csv")
 
-    # dataset_result.to_csv(path_to_save_ratings, index=False)
-    # dataset_instance.items.to_csv(path_to_save_items, index=False)
+    dataset_result.to_csv(path_to_save_ratings, index=False)
+    dataset_instance.items.to_csv(path_to_save_items, index=False)
 
     print(" => Finalizando a tarefa dos datasets")
     print("\n")

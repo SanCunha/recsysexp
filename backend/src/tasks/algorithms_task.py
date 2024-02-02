@@ -191,6 +191,7 @@ class AlgorithmsTask(Task):
         train_dataset_name: str = "",
     ):
         try:
+            print("algorithms.items[0]", algorithms.items[0])
             for algorithm in algorithms.items[0]:
                 algorithm_name = algorithm.__class__.__name__
                 print("Algorithm name: ", algorithm_name)

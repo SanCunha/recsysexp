@@ -233,7 +233,7 @@ function Form() {
                     "instances": [
                         {
                             "module": "src.recommenders.item_knn",
-                            "class_name": "ItemKNN",
+                            "class_name": "LenskitItemKNN",
                             "parameters": {
                                 "maxNumberNeighbors": 20,
                                 "minNumberNeighbors": 4,
@@ -560,7 +560,7 @@ function Form() {
                     "instances": [
                         {
                             "module": "src.recommenders.item_knn",
-                            "class_name": "ItemKNN",
+                            "class_name": "LenskitItemKNN",
                             "parameters": {
                                 "maxNumberNeighbors": 20,
                                 "minNumberNeighbors": 4,

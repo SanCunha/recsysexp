@@ -1,10 +1,9 @@
 from src.shared.container import Container
 from src.shared.generic_factory import GenericFactory
 
-class VisualizationContainer(Container):
-    """
 
-    """
+class VisualizationContainer(Container):
+    """ """
 
     def __init__(self, parameters: dict) -> None:
         """
@@ -12,12 +11,10 @@ class VisualizationContainer(Container):
 
         """
         super().__init__()
-        visualizations = parameters.get('instances')
+        visualizations = parameters.get("instances")
 
         if len(visualizations) == 0:
             pass
         else:
             self.visualization_factory = GenericFactory(parameters)
             self.insert(0, self.visualization_factory.create)
-
-

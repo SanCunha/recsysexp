@@ -81,7 +81,7 @@ def run():
     data = request.get_json()
     saved_json = write_json(data)
     if saved_json:
-        os.system("python3 main.py output.json")
+        os.system("python3 main.py config.json")
         files = get_files()
         return files
     else:
@@ -92,7 +92,7 @@ def write_json(data):
     if data:
         # Assuming the data is a valid JSON object
         try:
-            with open("output.json", "w") as file:
+            with open("config.json", "w") as file:
                 json.dump(data, file)
                 print("JSON SALVO COM SUCESSO")
             return True

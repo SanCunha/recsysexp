@@ -102,6 +102,7 @@ def run_preprocessing_task():
 
     experiment = exp_handler.get_experiment("exp1")
     experiment_instances = experiment.instances
+
     preprocessing_instance = experiment_instances["preprocessing"]
 
     preprocessing_task = PreProcessingTask(preprocessing_instance)
