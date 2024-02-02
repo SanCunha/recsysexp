@@ -43,34 +43,6 @@ function CustomComponent(props: CustomComponentProps) {
                     />
                 );
             case "boolean":
-                // if (){
-                //     return (
-                //         <FormControlLabel
-                //             control={
-                //                 <Switch
-                //                     key={`${props.title}-${key}`}
-                //                     checked={value}
-                //                     onChange={(e) => props.set_parameters(`${props.title}-${key}`, e.target.checked)}
-                //                 />
-                //             }
-                //             label={key}
-                //         />
-                //     );
-                // } else {
-                //     return (
-                //         <FormControlLabel
-                //             control={
-                //                 <Switch
-                //                     key={`${props.title}-${key}`}
-                //                     checked={value}
-                //                     onChange={(e) => props.set_parameters(`${props.title}-${key}`, e.target.checked)}
-                //                 />
-                //             }
-                //             label={key}
-                //         />
-                //     );
-                // }
-                console.log(props)
                 return (
                     <FormControlLabel
                         control={

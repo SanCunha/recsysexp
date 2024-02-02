@@ -19,7 +19,6 @@ const Select: React.FC<SelectProps> = ({ onSelectChange }) => {
         axios
             .request(configAxios)
             .then((response) => {
-                console.log(response.data);
                 setOpcoesSelect(response.data.datasets);
             })
             .catch((error) => {
