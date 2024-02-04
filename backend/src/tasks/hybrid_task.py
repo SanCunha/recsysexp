@@ -1,4 +1,3 @@
-
 from src.tasks.task import Task
 from src.experiments.experiment_handler import ExperimentHandler
 from src.data.loader import Loader
@@ -31,6 +30,7 @@ class HybridTask(Task):
         return hybrid
 
     def _handle_hybrid_operations(self, hybrid):
+        print("_handle_hybrid_operations =======================", hybrid)
         return hybrid
 
 
@@ -39,14 +39,12 @@ def run_hybrid_task():
     loader = Loader()
     config_obj = loader.load_json_file("config.json")
 
-    experiments = config_obj['experiments']
-    exp_handler = ExperimentHandler(
-        experiments=experiments
-    )
+    experiments = config_obj["experiments"]
+    exp_handler = ExperimentHandler(experiments=experiments)
     experiment = exp_handler.get_experiment("exp1")
     experiment_instances = experiment.instances
 
-    hybrid_instance = experiment_instances['hybrid']
+    hybrid_instance = experiment_instances["hybrid"]
 
     hybrid_task = HybridTask(hybrid_instance)
     hybrid_task.run()

@@ -245,7 +245,7 @@ function Form() {
                         },
                         {
                             "module": "src.recommenders.user_knn",
-                            "class_name": "UserKNN",
+                            "class_name": "LenskitUserKNN",
                             "parameters": {
                                 "maxNumberNeighbors": 12,
                                 "minNumberNeighbors": 4,
@@ -572,7 +572,7 @@ function Form() {
                         },
                         {
                             "module": "src.recommenders.user_knn",
-                            "class_name": "UserKNN",
+                            "class_name": "LenskitUserKNN",
                             "parameters": {
                                 "maxNumberNeighbors": 12,
                                 "minNumberNeighbors": 4,
@@ -903,3 +903,12 @@ function Form() {
     )
 }
 export default Form;
+
+// {
+//     "class": "MovieLens",
+//     "module": "src.data.movielens",
+//     "parameters": {
+//       "proportion": "ml-latest-small",
+//       "filters": {}
+//     }
+//   }

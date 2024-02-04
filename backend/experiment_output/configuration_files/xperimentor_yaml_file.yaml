@@ -1,9 +1,9 @@
-clusterIp: ''
+clusterIp: 10.123.222.10
 recipeDefaults:
-  Alg: null
+  Alg: []
   DB: []
   Eval: []
-  Fold: null
+  Fold: []
   HF: []
   MF: []
   Stats: []
@@ -12,13 +12,14 @@ recipes:
   pruning: []
   uses:
     Alg:
-    - LenskitItemKNN
+    - LenskitUserKNN
     DB:
     - MovieLens
     Eval:
     - RMSE
     Fold: []
-    HF: []
+    HF:
+    - Flws
     MF: []
     Stats: []
 tasks:

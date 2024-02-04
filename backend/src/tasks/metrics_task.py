@@ -136,12 +136,6 @@ class MetricsTask(Task):
         pred_files = self.get_results_file_names("predictions")
         truth_files = self.get_truth_data_file_names()
         for file in pred_files:
-            print("prediction path: ", file)
-
-            # if len(file.split("-")) == 4:
-            #     fold_number = file.split("-")[3]
-            # else:
-            #     fold_number = "0"
             fold_number = file.split("-")[3]
             pred_path = self.predictions_output_path.joinpath(file)
             prediction = pd.read_csv(pred_path)
@@ -149,14 +143,14 @@ class MetricsTask(Task):
             truth_path = truth_path.joinpath(
                 "validation-fold-{}.csv".format(fold_number)
             )
-            print("truth_path: ", truth_path)
             truth_df = pd.read_csv(truth_path, index_col=[0])
-            print("truth df: ", truth_df)
 
             self.evaluate_predictions(prediction, truth_df)
 
     def handle_metrics_tasks(self, metrics):
+        print("self.handle_with_prediction_results()")
         self.handle_with_prediction_results()
+        print("self.handle_with_recommendation_results(metrics)")
         self.handle_with_recommendation_results(metrics)
 
 

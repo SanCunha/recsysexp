@@ -35,9 +35,10 @@ class VisualizationTask(Task):
         @param results:
         @return:
         """
-
-        for tmp in visualization.items:
-            tmp[0].plot()
+        print("visualization.items", visualization.items)
+        for item in visualization.items:
+            for visualization in item:
+                visualization.plot()
         # return visualization
         return
 

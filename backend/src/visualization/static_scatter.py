@@ -40,7 +40,7 @@ class StaticScatter(StaticPlot):
         ax.set_title("Quantidade de Ratings por usuário")
         ax.set_ylabel("Quantidade de ratings")
         ax.set_xlabel("Id dos usuários")
-        archive_name = "ratings_by_user_bar.png"
+        archive_name = "ratings_by_user_scatter_bar.png"
         path_to_save = (
             hrf_experiment_output_path()
             .joinpath(self.visualization_output_path)
@@ -59,7 +59,7 @@ class StaticScatter(StaticPlot):
         ax.set_title("Quantidade de Ratings por filme")
         ax.set_ylabel("Quantidade de ratings")
         ax.set_xlabel("Id dos filmes")
-        archive_name = "ratings_by_items.png"
+        archive_name = "ratings_by_items_scatter_bar.png"
         path_to_save = (
             hrf_experiment_output_path()
             .joinpath(self.visualization_output_path)

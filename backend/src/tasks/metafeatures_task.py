@@ -31,8 +31,12 @@ class MetaFeaturesTask(Task):
         pass
 
     def run(self):
-        metafeatures = self._handle_metafeatures_tasks(self.metafeatures_instance)
-        return metafeatures
+        print("self.metafeatures_instance", self.metafeatures_instance)
+        if len(self.metafeatures_instance.items) != 0:
+            metafeatures = self._handle_metafeatures_tasks(self.metafeatures_instance)
+        else:
+            print("Nenhuma metafeature selecionada")
+        return self.metafeatures_instance
 
     def _handle_metafeatures_tasks(self, metafeatures):
         command = self.create_command_to_metrics_calculator()
