@@ -148,9 +148,8 @@ class MetricsTask(Task):
             self.evaluate_predictions(prediction, truth_df)
 
     def handle_metrics_tasks(self, metrics):
-        print("self.handle_with_prediction_results()")
         self.handle_with_prediction_results()
-        print("self.handle_with_recommendation_results(metrics)")
+        print("metrics =============================== ", metrics)
         self.handle_with_recommendation_results(metrics)
 
 

@@ -327,18 +327,6 @@ function Form() {
                                     "item_ratings_distribution": true
                                 }
                             }
-                        },
-                        {
-                            "module": "src.visualization.interactive_bar",
-                            "class_name": "InteractiveBar",
-                            "parameters": {
-                                "plot_types": {
-                                    "ratings_by_user": true,
-                                    "ratings_by_item": true,
-                                    "items_predict": true,
-                                    "item_ratings_distribution": true
-                                }
-                            }
                         }
                     ]
                 }
@@ -646,18 +634,6 @@ function Form() {
                         {
                             "module": "src.visualization.static_bar",
                             "class_name": "StaticBar",
-                            "parameters": {
-                                "plot_types": {
-                                    "ratings_by_user": true,
-                                    "ratings_by_item": true,
-                                    "items_predict": true,
-                                    "item_ratings_distribution": true
-                                }
-                            }
-                        },
-                        {
-                            "module": "src.visualization.interactive_bar",
-                            "class_name": "InteractiveBar",
                             "parameters": {
                                 "plot_types": {
                                     "ratings_by_user": true,

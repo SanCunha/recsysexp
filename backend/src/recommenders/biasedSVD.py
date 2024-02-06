@@ -30,19 +30,13 @@ class BiasedSVD(Recommender):
 class LenskitBiasedSVD(Recommender):
     def __init__(self, parameters: dict) -> None:
         super().__init__()
-        default_keys = {
-            'iterations',
-            'features'
-        }
+        default_keys = {"iterations", "features"}
 
         parameters = process_parameters(parameters, default_keys)
 
-        self.features = parameters.get('features')
-        self.damping = parameters.get('damping', 5)
-        self.BiasedMF = BiasedMF(
-            features=self.features,
-            iterations=20
-        )
+        self.features = parameters.get("features")
+        self.damping = parameters.get("damping", 5)
+        self.BiasedMF = BiasedMF(features=self.features, iterations=20)
         self.BiasedMF = LenskitRecommender.adapt(self.BiasedMF)
 
     def predict_for_user(self, user, items, ratings=None):
@@ -76,7 +70,7 @@ class LenskitBiasedSVD(Recommender):
         """
         try:
             recommendation_dataframe = DataFrame(
-                columns=['user', 'item', 'score', 'algorithm_name']
+                columns=["user", "item", "score", "algorithm_name"]
             )
             for user in users:
                 recommendation_to_user = self.BiasedMF.recommend(user, n)
@@ -84,12 +78,12 @@ class LenskitBiasedSVD(Recommender):
                 names = Series([self.__class__.__name__] * n)
                 user_id_list = Series([user] * n)
 
-                recommendation_to_user['algorithm_name'] = names
-                recommendation_to_user['user'] = user_id_list
+                recommendation_to_user["algorithm_name"] = names
+                recommendation_to_user["user"] = user_id_list
 
                 recommendation_dataframe = concat(
                     [recommendation_dataframe, recommendation_to_user],
-                    ignore_index=True
+                    ignore_index=True,
                 )
 
             return recommendation_dataframe
@@ -115,3 +109,7 @@ class LenskitBiasedSVD(Recommender):
         @return:
         """
         self.BiasedMF.fit(rating)
+
+    @property
+    def recommender(self):
+        return self.BiasedMF

@@ -12,14 +12,17 @@ recipes:
   pruning: []
   uses:
     Alg:
+    - LenskitItemKNN
     - LenskitUserKNN
+    - LenskitBiasedSVD
     DB:
     - MovieLens
     Eval:
-    - RMSE
+    - LenskitRMSE
+    - LenskitMAE
+    - LenskitNDCG
     Fold: []
-    HF:
-    - Flws
+    HF: []
     MF: []
     Stats: []
 tasks:

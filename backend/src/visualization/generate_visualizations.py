@@ -1,3 +1,10 @@
+import sys
+
+sys.path.insert(
+    0,
+    "/home/san-cunha/Desktop/Desktop/UFOP/MonoII/RecSysExpFull/backend",
+)
+
 from src.visualization.static_bar import StaticBar
 from src.visualization.static_scatter import StaticScatter
 from src.data.movielens import MovieLens
@@ -108,6 +115,7 @@ items_most_rated(ratings)
 
 evaluate_measures_results(measure_ndcg, "NDCG")
 evaluate_measures_results(measeure_mae, "MAE")
+evaluate_measures_results(measure_rmse, "RMSE")
 
 static_bar = StaticBar(parameters)
 static_bar.ratings_by_user_plot(ratings)
